@@ -1,2 +1,6 @@
 # JolieStoreApp
-Aplicación de articulos de belleza, con xamarin forms y firebase.
+❤ Design of a makeup store application
+
+✔ Xamarin Forms
+✔ Pancake
+✔ Firebase
