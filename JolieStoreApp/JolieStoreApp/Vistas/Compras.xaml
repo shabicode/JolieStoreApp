@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JolieStoreApp.Vistas.Compras">
-    <StackLayout>
-        <Grid>
-
-            <StackLayout Orientation="Horizontal">
-                <Image Source="back" HeightRequest="20"/>
-                <Label Text="Maquillaje" VerticalOptions="Center" FontSize="18" TextColor="Black" Margin="30,0,0,0"/>
-                <Image Source="back" HeightRequest="30" HorizontalOptions="EndAndExpand"/>
-            </StackLayout>
-
-
+             x:Class="JolieStoreApp.Vistas.Compras" 
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              >
+    <StackLayout BackgroundColor="Black">
+        <Grid RowDefinitions="*,100" VerticalOptions="FillAndExpand">
+            <pancake:PancakeView CornerRadius="0,0,40,40" BackgroundColor="#EFEFEC">
+                <ScrollView HeightRequest="600">
+                    <Grid ColumnDefinitions="*,*" Margin="8,0,8,0" RowDefinitions="80,*">
+                        <StackLayout Orientation="Horizontal" Grid.ColumnSpan="2">
+                            <Image Source="back" HeightRequest="20" Margin="10,0,0,0"/>
+                            <Label Text="Maquillaje" VerticalOptions="Center" FontSize="18" TextColor="Black" Margin="30,0,0,0"/>
+                            <Image Source="sort" HeightRequest="30" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Izquierda" Grid.Column="0" Grid.Row="1"></StackLayout>
+                        <StackLayout x:Name="Derecha" Grid.Column="1" Grid.Row="1">
+                            <Frame HeightRequest="300" CornerRadius="10" Margin="8" HasShadow="False" 
+                                   BackgroundColor="White"
+                                   Padding="0">
+                                <StackLayout>
+                                    <Image Source=""></Image>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid> 
+                </ScrollView> 
+            </pancake:PancakeView>
+            <StackLayout Grid.Row="1" BackgroundColor="Black"></StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>
