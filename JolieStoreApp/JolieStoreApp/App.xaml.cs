@@ -1,6 +1,8 @@
-﻿using System;
+﻿using JolieStoreApp.Vistas;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.SharedTransitions;
 
 namespace JolieStoreApp
 {
@@ -10,7 +12,7 @@ namespace JolieStoreApp
         {
             InitializeComponent();
 
-            MainPage = new  NavigationPage(new MainPage());
+            MainPage = new  SharedTransitionNavigationPage(new Compras());
         }
 
         protected override void OnStart()

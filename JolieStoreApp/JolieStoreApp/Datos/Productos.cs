@@ -10,10 +10,13 @@ namespace JolieStoreApp.Datos
 {
     public class Productos
     {
-        public async Task<List<ProductoModel>> MostrarProductos()
+        public async Task<List<ProductoModel>> Mostrarproductos()
         {
-            return (await Conexion.firebase
-                .Child("Productos").OnceAsync<ProductoModel>()).Select(item => new ProductoModel
+            try
+            {
+                return (await Conexion.firebase
+                .Child("Productos")
+                .OnceAsync<ProductoModel>()).Select(item => new ProductoModel
                 {
                     Descripcion = item.Object.Descripcion,
                     Icono = item.Object.Icono,
@@ -21,6 +24,36 @@ namespace JolieStoreApp.Datos
                     Peso = item.Object.Peso,
                     Idproducto = item.Key
                 }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+            
+        }
+
+        public async Task<List<ProductoModel>> MostrarproductosById(ProductoModel parametros)
+        {
+            try
+            {
+                return (await Conexion.firebase
+                .Child("Productos")
+                .OnceAsync<ProductoModel>()).Where(a=>a.Key == parametros.Idproducto).Select(item => new ProductoModel
+                {
+                    Descripcion = item.Object.Descripcion,
+                    Icono = item.Object.Icono,
+                    Precio = item.Object.Precio,
+                    Peso = item.Object.Peso,
+                    Idproducto = item.Key
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+
         }
     }
 }
